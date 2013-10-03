@@ -10,7 +10,7 @@
 LOGGEDIN=`who | grep console | awk '{print $1}'`
 DEFAULTMAIL=`defaults read /Users/$LOGGEDIN/Library/Preferences/com.apple.LaunchServices.plist | perl -e 'while(<>) {push @lines, $_; m~mailto~ and last} $_ = $lines[-2]; s~[^\"]+\"~~;s~\";~~;print'`
 COMPUTER=`hostname`
-FILE=`ls -ltr /var/tmp | tail -1 | awk '{print $9}'`
+FILE=`ls -ltr /var/tmp | tail -1 | awk '{print $10}'`
 BOOTDISK=`diskutil info / | grep "Volume Name" | cut -c 30-50`
 CD="/Path/to/CocoaDialog.app/Contents/MacOS/CocoaDialog"
 
