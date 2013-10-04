@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<script type="text/javascript" src="jquery-1.8.2.min.js"></script>
+	<head>
+		
+		<meta charset=utf-8 />
+		
+		<title>Administrative Access Request</title>
+		
+		<link rel=stylesheet href=style.css type=text/css>
+	
+	</head>
+	
+	<body>
+	<img src="JNUCLogo.jpg" height=50>
+		<form id=payment method="post" name="Emailform" action="sendmail_admin.php" target="_self" onSubmit="return checkemail(this)">
+		
+			<fieldset>
+			
+				<legend>Your details</legend>
+		
+				<ol>
+					
+					<li>
+						<label for=name>Name</label>
+						<input id=name name=name type=text placeholder="First and last name" required autofocus>
+					</li>
+					
+					<li>
+						<label for=email>Email</label>
+						<input id=email name=email type=email placeholder="your.name@bellmedia.ca" required>
+					</li>
+					
+					<li>
+						<label for=phone>Extension</label>
+						<input id=phone name=phone type=tel placeholder="Eg. x6000" required>
+					</li>
+						
+				</ol>
+			
+			</fieldset>
+			
+			<fieldset>
+			
+				<legend>What is Admin Access Required for?</legend>
+				
+				<ol>
+				
+					<li>
+						<label for=description>Describe what admin access is required for:</label>
+						<textarea id=description name=description placeholder="Eg. I needed admin to install this super awesome software at 3am and didn't want to wake you guys up!" rows=5 required></textarea>
+					</li>
+					
+					<li>
+						<label for=MachineName>Machine Name:</label>
+						<input id=MachineName name=MachineName placeholder="Eg. Bob's iMac"  type=text required>
+					</li>
+				
+				</ol>
+			
+			</fieldset>
+			
+			<fieldset>
+			
+				<button type=submit>Request Access</button>
+			
+			</fieldset>
+		
+		</form>
+	
+	</body>
+
+</html>
