@@ -1,12 +1,15 @@
 #!/bin/bash
 ##############
-# This script will give a user 30 minutes of Admin level access, from Jamf's self service.
-# At the end of the 30 minutes it will then call a jamf policy with a manual trigger. 
-# Remove the users admin rights and disable the plist file this creates and activites.
+# This script will give a user 30 minutes of Admin level access, from Jamf's self 
+# service.
+# At the end of the 30 minutes it will then call a jamf policy with a manual 
+# trigger. 
+# Remove the users admin rights and disable the plist file this creates and 
+# activites.
 # The removal script is removetempAdmin.sh
 ##############
 
-U=`who |grep console| awk '{print $1}'`
+USERNAME=`who |grep console| awk '{print $1}'`
 
 # Place launchd plist to call JSS policy to remove admin rights.
 #####
@@ -42,10 +45,10 @@ launchctl load -w /Library/LaunchDaemons/com.yourcompany.adminremove.plist
 # build log files in var/uits
 mkdir /var/uits
 TIME=`date "+Date:%m-%d-%Y TIME:%H:%M:%S"`
-echo $TIME " by " $U >> /var/uits/30minAdmin.txt
+echo $TIME " by " $USERNAME >> /var/uits/30minAdmin.txt
 
-echo $U >> /var/uits/userToRemove
+echo $USERNAME >> /var/uits/userToRemove
 
 # give current logged user admin rights
-/usr/sbin/dseditgroup -o edit -a $U -t user admin
+/usr/sbin/dseditgroup -o edit -a $USERNAME -t user admin
 exit 0
